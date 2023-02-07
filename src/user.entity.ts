@@ -15,4 +15,13 @@ export class Users {
   @Column()
   password: string;
 
+  @Column()
+  city: string;
+
+  @Column('int')
+  zipcode: number;
+
+  @Column()
+  country: string;
+
 } 
