@@ -1,4 +1,4 @@
-import { Column, Entity, Entity, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 //adatbazis neve user
 @Entity()
@@ -20,7 +20,6 @@ export class Users {
  
 }
 
-@Entity()
 export class Etelek{
   @PrimaryGeneratedColumn()
   id: number;
@@ -42,7 +41,6 @@ export class Etelek{
 }
 
 
-@Entity()
 export class Admin{
   @Column()
   felh_nev: string;
