@@ -7,20 +7,20 @@ export class Users {
   id: number;
 
   @Column()
-  username: string;
+  felh_nev: string;
 
   @Column()
-  name: string;
+  nev: string;
 
   @Column()
   email: string;
 
   @Column()
   password: string;
- 
 }
 
-export class Etelek{
+@Entity()
+export class Etelek {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -40,12 +40,14 @@ export class Etelek{
   zsir: number;
 }
 
+@Entity()
+export class Admin {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-export class Admin{
   @Column()
   felh_nev: string;
 
   @Column()
   pass: string;
 }
-
