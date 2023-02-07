@@ -1,10 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Entity, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 //adatbazis neve user
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
+  username: string;
 
   @Column()
   name: string;
@@ -14,24 +17,37 @@ export class Users {
 
   @Column()
   password: string;
+ 
+}
+
+@Entity()
+export class Etelek{
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
-  city: string;
+  nev: string;
 
-  @Column('int')
-  zipcode: number;
+  @Column('double')
+  caloria: number;
+
+  @Column('double')
+  feherje: number;
+
+  @Column('double')
+  szenhidrat: number;
+
+  @Column('double')
+  zsir: number;
+}
+
+
+@Entity()
+export class Admin{
+  @Column()
+  felh_nev: string;
 
   @Column()
-  country: string;
-
-
-  @Column()
-  gender: string;
-
-  @Column()
-  username: string;
-
-  @Column()
-  age: number;
+  pass: string;
 }
 
