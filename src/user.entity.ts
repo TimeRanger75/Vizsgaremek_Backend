@@ -24,4 +24,14 @@ export class Users {
   @Column()
   country: string;
 
-} 
+
+  @Column()
+  gender: string;
+
+  @Column()
+  username: string;
+
+  @Column()
+  age: number;
+}
+
