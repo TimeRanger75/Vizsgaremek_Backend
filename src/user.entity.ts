@@ -7,10 +7,10 @@ export class Users {
   id: number;
 
   @Column()
-  felh_nev: string;
+  username: string;
 
   @Column()
-  nev: string;
+  name: string;
 
   @Column()
   email: string;
@@ -25,19 +25,19 @@ export class Etelek {
   id: number;
 
   @Column()
-  nev: string;
+  name: string;
 
   @Column('double')
-  caloria: number;
+  calorie: number;
 
   @Column('double')
-  feherje: number;
+  protein: number;
 
   @Column('double')
-  szenhidrat: number;
+  carbohydrate: number;
 
   @Column('double')
-  zsir: number;
+  fat: number;
 }
 
 @Entity()
@@ -46,8 +46,8 @@ export class Admin {
   id: number;
 
   @Column()
-  felh_nev: string;
+  admin_name: string;
 
   @Column()
-  pass: string;
+  password: string;
 }

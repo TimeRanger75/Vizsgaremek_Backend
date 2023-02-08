@@ -13,34 +13,34 @@ export class Kerdoiv {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Users, (felh_nev) => felh_nev.felh_nev)
+  @OneToOne(() => Users, (username) => username.username)
   @JoinColumn()
-  felh_nev: Users;
+  username: Users;
 
   @Column('int')
-  suly: number;
+  weight: number;
 
   @Column('int')
-  magassag: number;
+  height: number;
 
   @Column('int')
-  eletkor: number;
+  age: number;
 
   @Column('int')
-  viz_fogyasztas: number;
+  water_consume: number;
 
   @Column()
-  eletmod: string;
+  lifestyle: string;
 
   @Column()
-  nem: string;
+  gender: string;
 
   @Column()
-  suly_cel: string;
+  diet_plan: string;
 
   @Column()
-  alomsuly: number;
+  weight_goal: number;
 
   @Column()
-  kinezetcel: string;
+  look: string;
 }
