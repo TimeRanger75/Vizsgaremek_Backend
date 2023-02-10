@@ -14,7 +14,6 @@ export class AppController {
   @Post('/register')
   async registerUser(@Body() user: Users) {
     user.id = undefined;
-    user.password = await bcrypt.hash(user.password, 10);
     const userRepo = this.dataSource.getRepository(Users);
     userRepo.save(user);
   }
@@ -22,7 +21,6 @@ export class AppController {
   @Post('/admin')
   async adminRegister(@Body() admin: Admin){
     admin.id = undefined;
-    admin.password = await bcrypt.hash(admin.password, 10);
     const adminRepo = this.dataSource.getRepository(Admin);
     adminRepo.save(admin);
   }
