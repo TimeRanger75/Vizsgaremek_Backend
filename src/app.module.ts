@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Kerdoiv } from './kerdoiv.entity';
-import { Admin, Etelek, Users } from './user.entity';
+import { Admin, Foods, Users } from './user.entity';
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { Admin, Etelek, Users } from './user.entity';
       entities: [
         /* List of entities here */
         Users, 
-        Etelek, 
+        Foods, 
         Admin,
         Kerdoiv
       ],

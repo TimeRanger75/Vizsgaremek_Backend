@@ -22,7 +22,7 @@ export class Users {
 }
 
 @Entity()
-export class Etelek {
+export class Foods {
   @PrimaryGeneratedColumn()
   id: number;
 
