@@ -5,7 +5,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Users } from './user.entity';
+import { Users } from './user/entities/user.entity';
 
 @Entity()
 export class Kerdoiv {

@@ -2,24 +2,6 @@ import { Exclude } from 'class-transformer';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 //adatbazis neve user
-@Entity()
-export class Users {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  username: string;
-
-  @Column()
-  name: string;
-
-  @Column()
-  email: string;
-
-  @Exclude({ toClassOnly: true })
-  @Column()
-  password: string;
-}
 
 @Entity()
 export class Foods {

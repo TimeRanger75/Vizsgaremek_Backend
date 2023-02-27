@@ -3,7 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Kerdoiv } from './kerdoiv.entity';
-import { Admin, Foods, Users } from './user.entity';
+import { Admin, Foods} from './user.entity';
+import { Users } from './user/entities/user.entity';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -22,6 +24,7 @@ import { Admin, Foods, Users } from './user.entity';
       ],
       synchronize: true,
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
