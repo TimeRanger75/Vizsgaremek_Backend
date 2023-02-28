@@ -11,8 +11,8 @@ export class CreateUserDto {
     @MinLength(5)
     username:string;
 
-    @IsEmail()
     @IsDefined()
+    @IsEmail()
     email:string;
 
     @MinLength(8)

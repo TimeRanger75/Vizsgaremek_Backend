@@ -1,7 +1,4 @@
-import { Exclude } from 'class-transformer';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
-//adatbazis neve user
 
 @Entity()
 export class Foods {
@@ -22,16 +19,4 @@ export class Foods {
 
   @Column('double')
   fat: number;
-}
-
-@Entity()
-export class Admin {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  admin_name: string;
-
-  @Column()
-  password: string;
 }

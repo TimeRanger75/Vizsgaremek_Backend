@@ -1,3 +1,4 @@
+import { Users } from 'src/user/entities/user.entity';
 import {
   Column,
   Entity,
@@ -5,16 +6,15 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Users } from './user/entities/user.entity';
 
 @Entity()
-export class Kerdoiv {
+export class Form {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Users, (username) => username.username)
-  @JoinColumn()
-  username: Users;
+  // @OneToOne(() => Users, (username) => username.username)
+  // @JoinColumn()
+  // username: Users;
 
   @Column('int')
   weight: number;
@@ -25,8 +25,8 @@ export class Kerdoiv {
   @Column('int')
   age: number;
 
-  @Column('int')
-  water_consume: number;
+  @Column()
+  water_consume: string;
 
   @Column()
   lifestyle: string;
