@@ -8,6 +8,8 @@ import { FoodModule } from './food/food.module';
 import { Foods } from './food/entities/food.entity';
 import { FormModule } from './form/form.module';
 import { Form } from './form/entities/form.entity';
+import { AuthModule } from './auth/auth.module';
+import Token from './auth/token.entity';
 
 @Module({
   imports: [
@@ -21,13 +23,15 @@ import { Form } from './form/entities/form.entity';
         /* List of entities here */
         Users, 
         Foods, 
-        Form
+        Form,
+        Token,
       ],
       synchronize: true,
     }),
     UserModule,
     FoodModule,
     FormModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
