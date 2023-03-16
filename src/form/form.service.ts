@@ -13,8 +13,8 @@ export class FormService {
     this.dataSource.getRepository(Form).save(form);
   }
 
-  findAll() {
-    return `This action returns all form`;
+  async findAll() {
+    return await this.dataSource.getRepository(Form).find();
   }
 
   findOne(id: number) {

@@ -1,7 +1,6 @@
 import { IsDefined, Max, Min } from 'class-validator';
 
 export class CreateFormDto {
-
   @IsDefined()
   @Min(30)
   @Max(255)

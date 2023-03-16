@@ -20,7 +20,7 @@ export class AuthService {
     return tokenOBJ.user;
   }
 
-  async generateToken(user: Users){
+  async generateToken(user: Users) {
     const random = crypto.randomBytes(32);
     const tokenString = random.toString('hex');
     const token = new Token();
