@@ -39,4 +39,19 @@ export class FormController {
   remove(@Param('id') id: string) {
     return this.formService.remove(+id);
   }
+
+  @Get('body/search')
+  findlook() {
+    return this.formService.findlook();
+  }
+
+  @Get('gender/search')
+  findgender() {
+    return this.formService.findgender();
+  }
+
+  @Get('age/search')
+  findage() {
+    return this.formService.findage();
+  }
 }

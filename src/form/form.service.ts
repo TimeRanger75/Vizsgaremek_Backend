@@ -28,4 +28,32 @@ export class FormService {
   remove(id: number) {
     return `This action removes a #${id} form`;
   }
+
+  async findlook() {
+    const formRepo = this.dataSource.getRepository(Form);
+    return await formRepo
+      .createQueryBuilder()
+      .select(['look, COUNT(look) as count'])
+      .groupBy('look')
+      .getRawMany();
+  }
+
+  async findgender() {
+    const formRepo = this.dataSource.getRepository(Form);
+    return await formRepo
+      .createQueryBuilder()
+      .select(['gender, COUNT(gender) as count'])
+      .groupBy('gender')
+      .getRawMany();
+  }
+
+  async findage() {
+    const formRepo = this.dataSource.getRepository(Form);
+    return await formRepo
+      .createQueryBuilder()
+      .select(`SUM(IF(form.age < 25, 1, 0))`, 'below_25')
+      .addSelect(`SUM(IF(form.age >= 25, 1, 0))`, 'above_25')
+      //.from(Form, 'form')
+      .getRawOne();
+  }
 }
