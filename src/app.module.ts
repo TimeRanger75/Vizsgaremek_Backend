@@ -9,7 +9,9 @@ import { Foods } from './food/entities/food.entity';
 import { FormModule } from './form/form.module';
 import { Form } from './form/entities/form.entity';
 import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
 import Token from './auth/token.entity';
+import { Admin } from './admin/entities/admin.entity';
 
 @Module({
   imports: [
@@ -25,6 +27,7 @@ import Token from './auth/token.entity';
         Foods, 
         Form,
         Token,
+        Admin,
       ],
       synchronize: true,
     }),
@@ -32,6 +35,7 @@ import Token from './auth/token.entity';
     FoodModule,
     FormModule,
     AuthModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
