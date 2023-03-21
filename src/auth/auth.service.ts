@@ -29,4 +29,12 @@ export class AuthService {
     await this.datasource.getRepository(Token).insert(token);
     return tokenString;
   }
+
+  async deleteToken(token){
+    const tokenRepo=this.datasource.getRepository(Token);
+    const tokenOBJ= await tokenRepo.findOne({
+      where: {token},
+    relations:{user:true}});
+    await tokenRepo.delete(tokenOBJ);
+  }
 }

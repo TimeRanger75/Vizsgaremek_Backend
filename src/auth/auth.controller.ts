@@ -1,9 +1,10 @@
-import { Body, Controller, Post, UnauthorizedException } from '@nestjs/common';
+import { Body, Controller, Delete, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
 import LoginDto from './login.dto';
 import { AuthService } from './auth.service';
 import { DataSource } from 'typeorm';
 import { Users } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -27,5 +28,12 @@ export class AuthController {
     return {
       token: await this.authService.generateToken(user),
     };
+  }
+
+  @UseGuards(AuthGuard('bearer'))
+  @Delete('logout')
+  async logoutUser( authHeader: string) {
+    const token = authHeader.split(' ')[1];
+    this.authService.deleteToken(token)
   }
 }
