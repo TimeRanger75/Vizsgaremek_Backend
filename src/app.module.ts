@@ -12,6 +12,8 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import Token from './auth/token.entity';
 import { Admin } from './admin/entities/admin.entity';
+import { RecordsModule } from './records/records.module';
+import { Record } from './records/entities/record.entity';
 
 @Module({
   imports: [
@@ -28,6 +30,7 @@ import { Admin } from './admin/entities/admin.entity';
         Form,
         Token,
         Admin,
+        Record,
       ],
       synchronize: true,
     }),
@@ -36,6 +39,7 @@ import { Admin } from './admin/entities/admin.entity';
     FormModule,
     AuthModule,
     AdminModule,
+    RecordsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
