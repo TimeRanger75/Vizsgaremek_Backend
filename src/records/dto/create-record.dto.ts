@@ -14,6 +14,6 @@ export class CreateRecordDto {
     workoutTime: number;
 
     @IsDefined()
-    @IsDate()
+    //@IsDate()
     date: Date;
 }
