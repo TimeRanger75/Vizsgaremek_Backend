@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Post, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Post, UnauthorizedException, UseGuards, Headers } from '@nestjs/common';
 import LoginDto from './login.dto';
 import { AuthService } from './auth.service';
 import { DataSource } from 'typeorm';
@@ -32,7 +32,7 @@ export class AuthController {
 
   @UseGuards(AuthGuard('bearer'))
   @Delete('logout')
-  async logoutUser( authHeader: string) {
+  async logoutUser(@Headers('authorization') authHeader: string) {
     const token = authHeader.split(' ')[1];
     this.authService.deleteToken(token)
   }
