@@ -1,4 +1,3 @@
-import { Exclude } from "class-transformer";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -17,7 +16,6 @@ export class Users {
   @Column()
   email: string;
 
-  @Exclude({ toClassOnly: true })
-  @Column()
+  @Column({ select: false })
   password: string;
 }

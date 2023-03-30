@@ -34,6 +34,6 @@ export class AuthController {
   @Delete('logout')
   async logoutUser(@Headers('authorization') authHeader: string) {
     const token = authHeader.split(' ')[1];
-    this.authService.deleteToken(token)
+    this.authService.deleteToken(token);
   }
 }
