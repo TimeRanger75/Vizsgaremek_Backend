@@ -17,16 +17,8 @@ export class FormService {
     return await this.dataSource.getRepository(Form).find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} form`;
-  }
-
   update(id: number, updateFormDto: UpdateFormDto) {
     return `This action updates a #${id} form`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} form`;
   }
 
   async findlook() {

@@ -17,18 +17,11 @@ export class UserService {
   }
 
   async findAll() {
-    return await this.dataSource.getRepository(Users).find();
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+    const userRepo = await this.dataSource.getRepository(Users);
+    return await userRepo
+      .createQueryBuilder()
+      .select(['username, email, name'])
+      .getRawMany();
+    //return await this.dataSource.getRepository(Users).find();
   }
 }

@@ -1,21 +1,22 @@
-import { IsDefined,Contains, IsEmail,  MinLength } from "class-validator";
+import { Exclude } from 'class-transformer';
+import { IsDefined, Contains, IsEmail, MinLength } from 'class-validator';
 
 export class CreateUserDto {
+  @IsDefined()
+  @Contains(' ')
+  @MinLength(7)
+  name: string;
 
-    @IsDefined()
-    @Contains(' ')
-    @MinLength(7)
-    name:string;
+  @IsDefined()
+  @MinLength(5)
+  username: string;
 
-    @IsDefined()
-    @MinLength(5)
-    username:string;
+  @IsDefined()
+  @IsEmail()
+  email: string;
 
-    @IsDefined()
-    @IsEmail()
-    email:string;
-
-    @MinLength(8)
-    @IsDefined()
-    password:string;
+  @MinLength(8)
+  @IsDefined()
+  @Exclude()
+  password: string;
 }

@@ -1,7 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-
-
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
@@ -16,6 +14,6 @@ export class Users {
   @Column()
   email: string;
 
-  @Column({ select: false })
+  @Column()
   password: string;
 }

@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Post, UnauthorizedException, UseGuards, Headers } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Post,
+  UnauthorizedException,
+  UseGuards,
+  Headers,
+} from '@nestjs/common';
 import LoginDto from './login.dto';
 import { AuthService } from './auth.service';
 import { DataSource } from 'typeorm';
@@ -14,7 +22,7 @@ export class AuthController {
   ) {}
 
   @Post('login')
-  async login(@Body() loginData: LoginDto){
+  async login(@Body() loginData: LoginDto) {
     const userRepository = this.dataSource.getRepository(Users);
     const user = await userRepository.findOneBy({
       username: loginData.username,
