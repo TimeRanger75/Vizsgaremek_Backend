@@ -15,6 +15,6 @@ export class Record {
     @Column()
     date: Date;
 
-    @ManyToOne(() => Users)
+    @ManyToOne(() => Users, (user)=> user.id)
     user: Users;
 }

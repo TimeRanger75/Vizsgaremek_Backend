@@ -13,13 +13,9 @@ export class FormService {
     this.dataSource.getRepository(Form).save(form);
   }
 
-  async findAll() {
-    return await this.dataSource.getRepository(Form).find();
-  }
-
-  update(id: number, updateFormDto: UpdateFormDto) {
-    return `This action updates a #${id} form`;
-  }
+  // async findAll() {
+  //   return await this.dataSource.getRepository(Form).find();
+  // }
 
   async findlook() {
     const formRepo = this.dataSource.getRepository(Form);

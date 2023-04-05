@@ -17,18 +17,9 @@ export class FoodController {
     return this.foodService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.foodService.findOne(+id);
-  }
-
   @Put(':id')
   update(@Param('id') id: string, @Body() updateFoodDto: UpdateFoodDto) {
     return this.foodService.update(+id, updateFoodDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.foodService.remove(+id);
-  }
 }

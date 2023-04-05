@@ -13,19 +13,12 @@ export class RecordsService {
     this.dataSource.getRepository(Record).save(record);
   }
 
-  async findAll() {
-    return await this.dataSource.getRepository(Record).find();
+  async findOne(id: number) {
+   return await this.dataSource.getRepository(Record).createQueryBuilder('record')
+   .select(['record.bodyWeight', 'record.workoutTime', 'record.date'])
+  .innerJoin('record.user', 'user')
+  .where('user.id = :userId', { userId: id })
+  .getMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} record`;
-  }
-
-  update(id: number, updateRecordDto: UpdateRecordDto) {
-    return `This action updates a #${id} record`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} record`;
-  }
 }

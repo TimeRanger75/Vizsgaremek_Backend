@@ -12,15 +12,11 @@ export class FormController {
     return this.formService.create(createFormDto);
   }
 
-  @Get()
-  findAll() {
-    return this.formService.findAll();
-  }
+  // @Get()
+  // findAll() {
+  //   return this.formService.findAll();
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFormDto: UpdateFormDto) {
-    return this.formService.update(+id, updateFormDto);
-  }
 
   @Get('body/search')
   findlook() {

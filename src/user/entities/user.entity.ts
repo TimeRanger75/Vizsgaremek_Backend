@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Record } from "src/records/entities/record.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Users {
@@ -16,4 +17,7 @@ export class Users {
 
   @Column()
   password: string;
+
+  @OneToMany(()=> Record, (record)=> record.user)
+  records:Record[];
 }
