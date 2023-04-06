@@ -17,10 +17,6 @@ export class FoodService {
     return await this.dataSource.getRepository(Foods).find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} food`;
-  }
-
   async update(id: number, updateFoodDto: UpdateFoodDto) {
     const food = Object.assign(new Foods(), updateFoodDto);
     this.dataSource.getRepository(Foods).update(
@@ -35,7 +31,4 @@ export class FoodService {
     );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} food`;
-  }
 }

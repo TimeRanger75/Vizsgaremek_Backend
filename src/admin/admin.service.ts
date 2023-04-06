@@ -21,15 +21,4 @@ export class AdminService {
     return await this.dataSource.getRepository(Admin).find();
   }
 
- findOne(id: number) {
-    
-  }
-
-  update(id: number, updateAdminDto: UpdateAdminDto) {
-    return `This action updates a #${id} admin`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} admin`;
-  }
 }
