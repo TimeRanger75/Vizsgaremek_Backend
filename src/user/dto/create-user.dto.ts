@@ -17,6 +17,5 @@ export class CreateUserDto {
 
   @MinLength(8)
   @IsDefined()
-  @Exclude()
   password: string;
 }
