@@ -1,4 +1,4 @@
-import { IsDefined, Max, Min } from 'class-validator';
+import { IsDefined, IsNotEmpty, Matches, Max, Min, MinLength } from 'class-validator';
 
 export class CreateFormDto {
   @IsDefined()
@@ -34,5 +34,6 @@ export class CreateFormDto {
   weight_goal: number;
 
   @IsDefined()
+  @Matches(/^[a-z0-9]+(-[a-z0-9]+)*$/)
   look: string;
 }
