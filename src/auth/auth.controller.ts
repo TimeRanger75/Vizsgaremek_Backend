@@ -31,7 +31,7 @@ export class AuthController {
       throw new UnauthorizedException('Hibás felhasználónév');
     }
     if (!(await bcrypt.compare(loginData.password, user.password))) {
-      throw new UnauthorizedException('Hibás email vagy jelszó');
+      throw new UnauthorizedException('Hibás jelszó');
     }
     return {
       token: await this.authService.generateToken(user),
