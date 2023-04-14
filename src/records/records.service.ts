@@ -15,7 +15,7 @@ export class RecordsService {
 
   async findOne(user: Users) {
     const recordRepo = this.dataSource.getRepository(Record);
-    return { records: await recordRepo.find({ where: { user: user } }) };
+    return await recordRepo.find({ where: { user: user } });
   }
   async getOne(id: number) {
     return this.dataSource.getRepository(Users).findOneBy({ id });
