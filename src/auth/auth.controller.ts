@@ -13,6 +13,7 @@ import { DataSource } from 'typeorm';
 import { Users } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { AuthGuard } from '@nestjs/passport';
+import Token from './token.entity';
 
 @Controller('auth')
 export class AuthController {

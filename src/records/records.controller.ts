@@ -3,11 +3,10 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
+  Headers,
   UseGuards,
-  Req,
+  Request
 } from '@nestjs/common';
 import { RecordsService } from './records.service';
 import { CreateRecordDto } from './dto/create-record.dto';
@@ -28,16 +27,10 @@ export class RecordsController {
     return this.recordsService.create(createRecordDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: Record) {
-    return this.recordsService.findOne(+id);
-  }
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get('user')
-  async getLogged(@Req() req): Promise<Users> {
-    const { id } = req.user;
-    console.log(id);
-    return this.dataSource.getRepository(Users).findOneBy({ id });
+  @Get()
+  @UseGuards(AuthGuard('bearer'))
+  async getLogged(@Request() req) {
+    return this.recordsService.findOne(req.user);
   }
 }
