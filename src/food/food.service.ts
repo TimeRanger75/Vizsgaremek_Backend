@@ -19,7 +19,7 @@ export class FoodService {
 
   async update(id: number, updateFoodDto: UpdateFoodDto) {
     const food = Object.assign(new Foods(), updateFoodDto);
-    this.dataSource.getRepository(Foods).update(
+    await this.dataSource.getRepository(Foods).update(
       { id: id },
       {
         name: food.name,
@@ -29,6 +29,7 @@ export class FoodService {
         protein: food.protein,
       },
     );
+    console.log(food)
   }
 
 }
