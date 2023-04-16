@@ -1,4 +1,4 @@
-import { IsDefined, IsNotEmpty, Matches, Max, Min, MinLength } from 'class-validator';
+import { IsDefined, Matches, Max, Min } from 'class-validator';
 
 export class CreateFormDto {
   @IsDefined()
@@ -17,15 +17,19 @@ export class CreateFormDto {
   age: number;
 
   @IsDefined()
+  @Matches(/^[A-Za-z]+$/)
   water_consume: string;
 
   @IsDefined()
+  @Matches(/^[A-Za-z]+$/)
   lifestyle: string;
 
   @IsDefined()
+  @Matches(/^[A-Za-z]+$/)
   gender: string;
 
   @IsDefined()
+  @Matches(/^[A-Za-z]+$/)
   diet_plan: string;
 
   @IsDefined()
@@ -34,6 +38,6 @@ export class CreateFormDto {
   weight_goal: number;
 
   @IsDefined()
-  @Matches(/^[a-z0-9]+(-[a-z0-9]+)*$/)
+  @Matches(/^[A-Za-z]+$/)
   look: string;
 }

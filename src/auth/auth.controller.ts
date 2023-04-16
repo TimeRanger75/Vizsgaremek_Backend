@@ -13,6 +13,7 @@ import { DataSource } from 'typeorm';
 import { Users } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { AuthGuard } from '@nestjs/passport';
+import Token from './token.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -31,7 +32,7 @@ export class AuthController {
       throw new UnauthorizedException('Hibás felhasználónév');
     }
     if (!(await bcrypt.compare(loginData.password, user.password))) {
-      throw new UnauthorizedException('Hibás email vagy jelszó');
+      throw new UnauthorizedException('Hibás jelszó');
     }
     return {
       token: await this.authService.generateToken(user),
