@@ -36,6 +36,7 @@ export class AuthController {
     }
     return {
       token: await this.authService.generateToken(user),
+      userid: user.id
     };
   }
 
