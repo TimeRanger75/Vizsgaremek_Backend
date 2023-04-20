@@ -12,10 +12,6 @@ export class Form {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // @OneToOne(() => Users, (username) => username.username)
-  // @JoinColumn()
-  // username: Users;
-
   @Column('int')
   weight: number;
 

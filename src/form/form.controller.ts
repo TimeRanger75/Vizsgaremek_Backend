@@ -12,12 +12,6 @@ export class FormController {
     return this.formService.create(createFormDto);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.formService.findAll();
-  // }
-
-
   @Get('body/search')
   findlook() {
     return this.formService.findlook();

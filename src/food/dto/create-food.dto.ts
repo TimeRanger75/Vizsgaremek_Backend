@@ -1,8 +1,7 @@
-import { IsDecimal, IsDefined } from "class-validator";
+import { IsDefined } from 'class-validator';
 
 export class CreateFoodDto {
-
- @IsDefined()
+  @IsDefined()
   name: string;
 
   @IsDefined()
