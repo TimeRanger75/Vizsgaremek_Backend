@@ -3,6 +3,7 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import { AppModule } from './app.module';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -11,6 +12,14 @@ async function bootstrap() {
      alongside with src. You can put them wherever you want, 
      just use the correct path if you use another folder.
   */
+
+  const config = new DocumentBuilder()
+    .setTitle('Easyway Fitness dokumentácio-backend')
+    .setDescription('Api lekérések dokumentációja')
+    .build();
+
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('doc', app, document);
 
   app.enableCors({
     origin: '*',
