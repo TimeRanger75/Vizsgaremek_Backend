@@ -14,6 +14,12 @@ import { Users } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { AuthGuard } from '@nestjs/passport';
 import Token from './token.entity';
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiOperation,
+  ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -23,6 +29,15 @@ export class AuthController {
   ) {}
 
   @Post('login')
+  @ApiOperation({
+    description: 'Felhasználó bejelentkezés',
+  })
+  @ApiCreatedResponse({
+    description: 'A felhasználó sikeresen bejelentkezett',
+  })
+  @ApiUnauthorizedResponse({
+    description: 'Hibás felhasználó név vagy jelszó',
+  })
   async login(@Body() loginData: LoginDto) {
     const userRepository = this.dataSource.getRepository(Users);
     const user = await userRepository.findOneBy({
@@ -36,11 +51,20 @@ export class AuthController {
     }
     return {
       token: await this.authService.generateToken(user),
-      userid: user.id
+      userid: user.id,
     };
   }
 
   @UseGuards(AuthGuard('bearer'))
+  @ApiOperation({
+    description: 'Kijelentkezteti a felhasználót',
+  })
+  @ApiCreatedResponse({
+    description: 'Sikeres kijelentkezés',
+  })
+  @ApiBadRequestResponse({
+    description: 'A felhasználó nincs bejelentkezve',
+  })
   @Delete('logout')
   async logoutUser(@Headers('authorization') authHeader: string) {
     const token = authHeader.split(' ')[1];

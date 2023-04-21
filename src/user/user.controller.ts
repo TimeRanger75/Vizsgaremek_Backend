@@ -1,7 +1,12 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { ApiOperation, ApiParam, ApiProperty } from '@nestjs/swagger';
+import {
+  ApiBadRequestResponse,
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiOperation,
+} from '@nestjs/swagger';
 
 @Controller('user')
 export class UserController {
@@ -9,7 +14,13 @@ export class UserController {
 
   @Post()
   @ApiOperation({
-    description:'Létrehoz egy felhasználót'
+    description: 'Létrehoz egy felhasználót',
+  })
+  @ApiCreatedResponse({
+    description: 'Sikeresen létrehozta a felhasználót',
+  })
+  @ApiBadRequestResponse({
+    description: 'A felhasználó nem jött létre',
   })
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
@@ -17,7 +28,10 @@ export class UserController {
 
   @Get()
   @ApiOperation({
-    description:'Visszaadja az összes felhasználót'
+    description: 'Visszaadja az összes felhasználót',
+  })
+  @ApiOkResponse({
+    description: 'Vissza adja a felhasználókat',
   })
   findAll() {
     return this.userService.findAll();
