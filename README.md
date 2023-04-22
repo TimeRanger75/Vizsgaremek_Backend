@@ -67,9 +67,17 @@ http://localhost:3000/doc alatt érhető el tesztekkel.
 
 ## Adatmodell
 
+![Adatmodell](https://user-images.githubusercontent.com/96292555/233783086-dfbcff0e-62f6-4c37-9d03-d8e2aa91cafa.png)
+
+- Users tábla - Felhasználókat tartalmazza
+- Food tábla - Ételeket tartalmazza
+- Record tábla - Felhasználók taplózását tartalmazza
+- Form tábla - Kérdőív válaszait tartalmazza
+- Admin tábla - Adminokat tartalmazza
+- Token tábla - Bejelentkezett felhasználók tokenjét tartalmazza
 
 
-## Support
+## Fejlesztők támogatása:
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
