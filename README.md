@@ -22,17 +22,19 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Leírás
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) sablon keretrendszer alapján. A fejlesztők weboldala az oldal alján megtaláható
 
-## Installation
+## Telepítés
 
 ```bash
 $ npm install
+$ npm install passport
+$ npm install bcrypt
 ```
 
-## Running the app
+## Alkalmazás futtatása
 
 ```bash
 # development
@@ -57,6 +59,15 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Dokumentáció
+
+http://localhost:3000/doc alatt érhető el tesztekkel.
+
+
+## Adatmodell
+
+
 
 ## Support
 
