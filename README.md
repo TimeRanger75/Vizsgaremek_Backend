@@ -35,6 +35,7 @@ $ npm install bcrypt
 ```
 
 ## Alkalmazás futtatása
+Futtattás előtt a kiválasztott adatbázis kezelő alkalmazásba hozzon létre egy adatbázist easywas néven majd importálja az \src mappán belül található easyway.sql fájlt!
 
 ```bash
 # development
