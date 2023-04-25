@@ -29,7 +29,6 @@ export class FoodService {
         protein: food.protein,
       },
     );
-    console.log(food)
   }
 
 }
